@@ -2,26 +2,23 @@ import React, { useState, useEffect } from 'react';
 
 const Partners = () => {
   const partners = ['Partner 1', 'Partner 2', 'Partner 3', 'Partner 4', 'Partner 5', 'Partner 6', 'Partner 7', 'Partner 8', 'Partner 9', 'Partner 10'];
-  const [itemsPerPage, setItemsPerPage] = useState(1);  // Change to 1 for mobile
+  const [itemsPerPage, setItemsPerPage] = useState(1); 
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    // Update items per page based on screen width
+   
     const handleResize = () => {
       if (window.innerWidth <= 768) {
-        setItemsPerPage(1);  // Mobile view
+        setItemsPerPage(1); 
       } else {
-        setItemsPerPage(5);  // Larger screens like laptops
+        setItemsPerPage(5); 
       }
     };
 
-    // Initial setup
     handleResize();
 
-    // Listen for window resize events
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on component unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
